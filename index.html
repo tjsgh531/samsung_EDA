@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- font-family: "Noto Sans KR", sans-serif; -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./src/style.css">
+    <script src="./src/main.js" type="module" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="container_nav">
+            <div class="nav_item active_nav_item">회사 소개</div>
+            <div class="nav_item ">매출액 분석</div>
+            <div class="nav_item">투자 분석</div>
+            <div class="nav_item">신년사 분석</div>
+            <div class="nav_item">관련 뉴스</div>
+        </div>
+
+        <div class="content company_info">
+            <!-- 페이지 별 내용을 가지고 있는 곳 -->
+            <!-- 1 페이지 -->
+            <div class="company_info_page active_page">
+                <div class="content_border_top"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom"></div>
+
+                <div>
+                    <span style="font-size:6rem; font-weight:900;">SAMSUNG</span>
+                    <span style="font-size:3rem; font-weight:600; display:block">ERECTRONICS</span>
+                </div>
+
+                <div class="company_info_1_text">
+                    글로벌 메모리 반도체 시장 점유율 <strong>1위</strong>
+                    </br>
+                    SK 하이닉스와 치열한 AI 서버용 반도체 D램 기술 경쟁
+                </div>
+            </div>
+
+            <!-- 2 페이지 -->
+            <div class="company_info_page unactive">
+                <div class="content_border_top_half_left"></div>
+                <div class="content_border_top_half_right"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom_half_left"></div>
+                <div class="content_border_bottom_half_right"></div>
+                <div class="content_border_center"></div>
+
+                <div class="company_info_title">
+                    삼성전자는
+                    </br>
+                    무엇을 하는 회사인가?
+                </div>
+
+                <canvas id="company_info_chart2"></canvas>
+
+                <div class="company_info_2_text" style="text-align:center">
+                    삼성전자 사업은 크게 4가지로 나눌 수 있다.
+                    </br>    
+                    <strong>
+                        </br> 1. DX 부문 :  스마트폰, TV, 냉장고, 세탁기, 등의 가전제품
+                        </br> 2. DS 부문 : DRAM, NAND Flash, 모바일AP 등 반도체 제품
+                        </br> 3. SDC 부문 : 스마트폰 용 OLED 등 디스플레이 제품
+                        </br> 4. Harman 부문 : 디지털 콕핏, 카오디오, 포터블 스피커 등
+                    </strong>    
+                    </br>
+                    </br>왼쪽 그래프는 각 부문별 매출액 비중을 나타낸 그래프이다.
+                    </br>그래프를 통해서 삼성전자는 DX부문과 DS 부문이 주력 사업임을 알 수 있다.
+                </div>
+                
+            </div>
+
+            <!-- 3 페이지 -->
+            <div class="company_info_page unactive">
+                <div class="content_border_top_half_left" style="width:63%;"></div>
+                <div class="content_border_top_half_right" style="width:33%;"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom_half_left" style="width:63%"></div>
+                <div class="content_border_bottom_half_right" style="width:33%"></div>
+                <div class="content_border_center" style="left:65%"></div>
+
+                <div class="company_info_title">
+                    3년간 주요 이벤트
+                </div>
+
+                <canvas id="company_info_chart3"></canvas>
+
+                <div class="explain_window">
+                 
+                </div>
+            </div>
+
+            <!-- 페이지 전환 버튼 -->
+            <div class="content_footer">
+                <div class="left_btn unactive">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+
+                <div class="right_btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
