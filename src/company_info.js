@@ -3,15 +3,15 @@ import ChartUtils from './chart_utils.js';
 class CompanyInfo{
     constructor(){        
         this.chart_utils = new ChartUtils();
-
-        this.pages = document.querySelectorAll('.company_info_page');
      
         this.pageManager();
+
+        this.page2_chart;
+        this.page3_chart;
     }
     pageManager(){   
         const max_page = 3;
         let current_page = 1;
-        
 
         const left_btn = document.querySelector('.left_btn');
         const right_btn = document.querySelector('.right_btn');
@@ -47,12 +47,14 @@ class CompanyInfo{
         })
     }
     pageChange(activepage){
+        const pages = document.querySelectorAll('.company_info_page');
         let active_page = document.querySelector('.active_page');
+
         active_page.classList.remove('active_page');
         active_page.classList.add('unactive');
 
-        this.pages[activepage-1].classList.add('active_page');
-        this.pages[activepage-1].classList.remove('unactive');
+        pages[activepage-1].classList.add('active_page');
+        pages[activepage-1].classList.remove('unactive');
 
         if(activepage === 2){
             this.page2();
@@ -63,6 +65,10 @@ class CompanyInfo{
     }
 
     page2(){
+        if(this.page2_chart){
+            this.page2_chart.destroy();
+        }
+
         const ctx = document.getElementById('company_info_chart2');
         // 데이터 불러오기
         const file = "src/data/sale_revenue_by_sector.json"
@@ -78,7 +84,7 @@ class CompanyInfo{
             }
 
             // 차트 설정
-            this.chart_utils.barchart(ctx, "부문 별 매출 비중(단위: %)", labels, ydata);
+            this.page2_chart = this.chart_utils.barchart(ctx, "부문 별 매출 비중(단위: %)", labels, ydata);
             ctx.style.transform = "scale(0.6)";
             ctx.style.left = "-15%";
 
@@ -86,6 +92,10 @@ class CompanyInfo{
     }
 
     page3(){
+        if(this.page3_chart){
+            this.page3_chart.destroy();
+        }
+
         const ctx = document.getElementById('company_info_chart3');
 
         const file = "src/data/stock_price.json";
@@ -100,7 +110,6 @@ class CompanyInfo{
         this.chart_utils.dataReader(history_file).then(history_data=>{
             this.chart_utils.dataReader(file)
             .then(data=>{
-                console.log(history_data);
                 let xdata = [];
                 let ydata = [];
                 let points = [];
@@ -138,7 +147,7 @@ class CompanyInfo{
                 }
     
     
-                this.chart_utils.linechart(ctx, "주가 변동", xdata, ydata, points_color, points, points_data);
+                this.page3_chart = this.chart_utils.linechart_point(ctx, "주가 변동", xdata, ydata, points_color, points, points_data);
             })
         })
        

@@ -15,6 +15,7 @@ html, body{
     transform: translate(-50%, -50%);
 
     width : 80vw;
+    min-width:1200px;
     height: 80vh;
 }
 
@@ -31,12 +32,12 @@ html, body{
 }
 .nav_item{
     position: absolute;
-    z-index: -1;
+    z-index: -1; bottom:-10px;
 
     width: calc(20% + 20px);
-    height:100%;
+    height:110%;
 
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 90%, 100% 100%, 0% 100%, 0% 90%);
     color: #BBBBBB;
 
     display: flex;
@@ -44,53 +45,49 @@ html, body{
     align-items: center;
 
     transition: transform 0.3s ease-in-out;
+
+    cursor: pointer;
 }
 .nav_item:hover{
-    transform: translateY(-10px)
+    transform: translateY(-8px)
 }
 .nav_item:nth-child(1){
     left: 0;
     background-color: white;
     border:1px solid white;
-    z-index: -1;
-
-    cursor: pointer;
+    z-index: 9;
 }
 .nav_item:nth-child(2){
     left: 20%;
     background-color: #D6E7F7;
     border:1px solid #D6E7F7;
-    z-index: -2;
-
-    cursor: pointer;
+    z-index: 8;
 }
 .nav_item:nth-child(3){
     left: 50%;
     transform: translateX(-50%);
     background-color: #F9DAE2;
     border:1px solid #F9DAE2;
-    z-index: -3;
-
-    cursor: pointer;
+    z-index: 7;
+}
+.nav_item:nth-child(3):hover{
+    transform: translateY(-8px) translateX(-50%);
 }
 .nav_item:nth-child(4){
     right: 20%;
     background-color: #D3E9DA;
     border:1px solid #D3E9DA;
-    z-index: -4;
-
-    cursor: pointer;
+    z-index: 6;
 }
 .nav_item:nth-child(5){
     right: 0;
     background-color: #FFF1CE;
     border:1px solid #FFF1CE;
-    z-index: -5;
-
-    cursor: pointer;
+    z-index: 5;
 }
 .active_nav_item{
     color:black;
+    font-size: 1.2rem;
     font-weight: 999;
     z-index:999 !important;
 }
@@ -98,6 +95,7 @@ html, body{
 /* ----------------------- content border ----------------------- */
 .content{
     position: relative;
+    z-index: 10;
     width:100%;
     height:90%;
     
@@ -107,7 +105,7 @@ html, body{
 
 .content_border_top{
     position: absolute;
-    top: -1rem; left: 50%;
+    top: -1rem; left: 50%; z-index: 999;
 
     transform: translateX(-50%);
 
@@ -118,7 +116,7 @@ html, body{
 }
 .content_border_top_half_left{
     position: absolute;
-    top: -1rem; left: 0%;
+    top: -1rem; left: 0%; z-index: 999;
 
     width: 48%;
     height: 4px;
@@ -127,7 +125,7 @@ html, body{
 }
 .content_border_top_half_right{
     position: absolute;
-    top: -1rem; right: 0%;
+    top: -1rem; right: 0%; z-index: 999;
 
     width: 48%;
     height: 4px;
@@ -136,7 +134,7 @@ html, body{
 }
 .content_border_bottom{
     position: absolute;
-    bottom: -1rem; left: 50%;
+    bottom: -1rem; left: 50%; z-index: 999;
 
     transform: translateX(-50%);
 
@@ -147,7 +145,7 @@ html, body{
 }
 .content_border_bottom_half_left{
     position: absolute;
-    bottom: -1rem; left: 0%;
+    bottom: -1rem; left: 0%; z-index: 999;
 
     width: 48%;
     
@@ -157,7 +155,7 @@ html, body{
 }
 .content_border_bottom_half_right{
     position: absolute;
-    bottom: -1rem; right: 0%;
+    bottom: -1rem; right: 0%; z-index: 999;
 
     width: 48%;
     
@@ -167,7 +165,7 @@ html, body{
 }
 .content_border_left{
     position: absolute;
-    top: 50%; left: -1rem;
+    top: 50%; left: -1rem; z-index: 999;
 
     transform: translateY(-50%);
 
@@ -178,7 +176,7 @@ html, body{
 }
 .content_border_right{
     position: absolute;
-    top: 50%; right: -1rem;
+    top: 50%; right: -1rem; z-index: 999;
 
     transform: translateY(-50%);
 
@@ -189,7 +187,7 @@ html, body{
 }
 .content_border_center{
     position: absolute;
-    top: 50%; left:50%;
+    top: 50%; left:50%; z-index: 999;
 
     transform: translate(-50%, -50%);
 
@@ -262,6 +260,57 @@ html, body{
 }
 
 
+/* ----------------------------------- revenue ----------------------------------- */
+.revenue{
+    background-color: #D6E7F7;
+}
+.left_content{
+    position: absolute;
+    top: 51%; left: -1%;
+
+    transform: translateY(-51%);
+
+    width: 51%;
+    height: 108%;
+
+}
+.right_content{
+    position: absolute;
+    top: 51%; right: -1%;
+
+    transform: translateY(-51%);
+
+    width: 51%;
+    height: 108%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.right_content_item{
+    padding: 1rem;
+    width: 85%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 4px solid black;
+}
+.revenue_title{
+    margin:1.5rem 1rem;
+
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+.revenue_text{
+    padding: 1rem;
+    width:80%;
+
+    text-align: center;
+}
 
 
 
@@ -269,6 +318,30 @@ html, body{
 
 
 
+/* ----------------------------------- invest ----------------------------------- */
+.invest{
+    background-color: #F9DAE2;
+}
+
+
+
+
+
+
+/* ----------------------------------- new_year_message ----------------------------------- */
+.new_year_message{
+    background-color: #D3E9DA;
+}
+
+
+
+
+
+
+/* ----------------------------------- news ----------------------------------- */
+.news{
+    background-color: #FFF1CE;
+}
 
 
 

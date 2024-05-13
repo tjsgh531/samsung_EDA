@@ -22,14 +22,15 @@
 <body>
     <div class="container">
         <div class="container_nav">
-            <div class="nav_item active_nav_item">회사 소개</div>
-            <div class="nav_item ">매출액 분석</div>
-            <div class="nav_item">투자 분석</div>
-            <div class="nav_item">신년사 분석</div>
-            <div class="nav_item">관련 뉴스</div>
+            <div class="nav_item" data-contentnum="0">회사 소개</div>
+            <div class="nav_item active_nav_item" data-contentnum="1">매출액 분석</div>
+            <div class="nav_item" data-contentnum="2">투자 분석</div>
+            <div class="nav_item" data-contentnum="3">신년사 분석</div>
+            <div class="nav_item" data-contentnum="4">관련 뉴스</div>
         </div>
 
-        <div class="content company_info">
+        <!-- 회사 소개 -->
+        <div class="content company_info unactive">
             <!-- 페이지 별 내용을 가지고 있는 곳 -->
             <!-- 1 페이지 -->
             <div class="company_info_page active_page">
@@ -76,10 +77,11 @@
                         </br> 2. DS 부문 : DRAM, NAND Flash, 모바일AP 등 반도체 제품
                         </br> 3. SDC 부문 : 스마트폰 용 OLED 등 디스플레이 제품
                         </br> 4. Harman 부문 : 디지털 콕핏, 카오디오, 포터블 스피커 등
+                        </br> 5. 기타 부문 : 부문간 내부거래 제거 등
                     </strong>    
                     </br>
                     </br>왼쪽 그래프는 각 부문별 매출액 비중을 나타낸 그래프이다.
-                    </br>그래프를 통해서 삼성전자는 DX부문과 DS 부문이 주력 사업임을 알 수 있다.
+                    </br>그래프를 통해서 삼성전자는 <strong>DX부문(65.7%)과 DS 부문(25.7%)이 주력 사업임</strong>을 알 수 있다.
                 </div>
                 
             </div>
@@ -101,7 +103,7 @@
                 <canvas id="company_info_chart3"></canvas>
 
                 <div class="explain_window">
-                 
+                    <span style="width:80%; color:gray">그래프 위 빨간 점 위에 마우스를 올려보세요</span>
                 </div>
             </div>
 
@@ -115,6 +117,153 @@
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
+        </div>
+
+        <!-- 매출액 분석 -->
+        <div class="content revenue">
+
+            <!-- 1 페이지 -->
+            <div class="revenue_page active_page">
+                <div class="content_border_top_half_left" style="width:58%"></div>
+                <div class="content_border_top_half_right" style="width:38%"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom_half_left" style="width:58%"></div>
+                <div class="content_border_bottom_half_right" style="width:38%"></div>
+                <div class="content_border_center" style="left:60%"></div>
+
+                <div class="left_content" style="width:61%; background-color: white;">
+                    <div class="revenue_title">
+                        부문 별 매출액 변화
+                    </div>
+                    <canvas id="revenue_chart_1"></canvas>
+                </div>
+
+                <div class="right_content" style="width:41%; display:flex; align-items:center; justify-content:center;">
+                    <div class="right_content_item" style="align-items:stretch; padding:0.5rem 1rem">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            <span style="display:block;">DX 부문</span>
+                            <span style="position:relative; top:-16px; font-size:0.6rem; font-weight:400; color:gray;">스마트폰, TV, 냉장고, 세탁기, 등의 가전제품</span>
+                        </div>
+                        <span style="font-size:2rem; font-weight:900; color:blue">6.85% 감소</span>  
+                    </div>
+                    <div class="right_content_item" style="align-items:stretch; padding:0.5rem 1rem">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            <span style="display:block;">DS 부문</span>
+                            <span style="position:relative; top:-16px; font-size:0.6rem; font-weight:400; color:gray;">DRAM, NAND Flash, 모바일AP 등 반도체 제품</span>
+                        </div>
+                        <span style="font-size:2rem; font-weight:900; color:blue">32.36% 감소</span>  
+                    </div>
+                    <div class="right_content_item" style="align-items:stretch; padding:0.5rem 1rem">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            <span style="display:block;">SDC</span>
+                            <span style="position:relative; top:-16px; font-size:0.6rem; font-weight:400; color:gray;">스마트폰 용 OLED 등 디스플레이 제품</span>
+                        </div>
+                        <span style="font-size:2rem; font-weight:900; color:blue">9.91% 감소</span>  
+                    </div>
+                    <div class="right_content_item" style="align-items:stretch; padding:0.5rem 1rem">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            <span style="display:block;">Harman</span>
+                            <span style="position:relative; top:-16px; font-size:0.6rem; font-weight:400; color:gray;">스마트폰, TV, 냉장고, 세탁기, 등의 가전제품</span>
+                        </div>
+                        <span style="font-size:2rem; font-weight:900; color:red">8.90% 증가</span>  
+                    </div>
+                    <div class="right_content_item" style="padding:0.5rem 1rem; border:none;">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            <span style="display:block;">총 매출액</span>
+                        </div>
+                        <span style="font-size:2rem; font-weight:900; color:blue">14.32% 감소</span>  
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2 페이지 -->
+            <div class="revenue_page unactive">
+                <div class="content_border_top_half_left" style="width:58%"></div>
+                <div class="content_border_top_half_right" style="width:38%"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom_half_left" style="width:58%"></div>
+                <div class="content_border_bottom_half_right" style="width:38%"></div>
+                <div class="content_border_center" style="left:60%"></div>
+
+                <div class="left_content" style="width:61%; background-color: white;">
+                    <div class="revenue_title">
+                        주요 제품별 매출액 변화
+                    </div>
+                    <canvas id="revenue_chart_2"></canvas>
+                </div>
+
+                <div class="right_content" style="width:41%">
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">스마트폰</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">5.88% 감소</span>  
+                    </div>
+                    
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">메모리</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">35.61% 감소</span>  
+                    </div>
+                    
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">TV, 모니터 등</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">8.72% 감소</span>  
+                    </div>
+                    
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">디스플레이 패널</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">9.91% 감소</span>  
+                    </div>
+
+                    <div class="revenue_text">
+                        모든 주요 제품들의 매출액이 작년에 비해 감소했다<br>
+                        가장 크게 감소를 보인 것은 메모리 매출액 이었다.<br>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 페이지 -->
+            <div class="revenue_page unactive">
+                <div class="content_border_top_half_left" style="width:58%"></div>
+                <div class="content_border_top_half_right" style="width:38%"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom_half_left" style="width:58%"></div>
+                <div class="content_border_bottom_half_right" style="width:38%"></div>
+                <div class="content_border_center" style="left:60%"></div>
+
+                <div class="left_content" style="width:61%; background-color: white;">
+                    <div class="revenue_title">
+                        메모리 매출액 감소 원인
+                    </div>
+                    <canvas id="revenue_chart_3"></canvas>
+                </div>
+
+            </div>
+
+            <!-- 페이지 전환 버튼 -->
+            <div class="content_footer">
+                <div class="left_btn left_btn_revenue">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+
+                <div class="right_btn right_btn_revenue">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="content invest unactive">
+
+        </div>
+        
+        <div class="content new_year_message unactive">
+
+        </div>
+
+        <div class="content news unactive">
+
         </div>
 
     </div>
