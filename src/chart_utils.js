@@ -116,6 +116,37 @@ class ChartUtils{
         return chart;
     }
 
+    piechart(ctx, title, xdata, ydata){
+        const config = {
+            type: 'pie',
+            data: {
+                labels: xdata,
+                datasets: [{
+                    label: title,
+                    data: ydata,
+                    backgroundColor: this.colors,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: title
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        };
+
+        const chart = new Chart(ctx, config);
+        ctx.style.transform = "scale(0.9)";
+        return chart;
+    }
+
     linechart_point(ctx, title, xdata, ydata, point_color, point_date, point_data){
         const explain_window = document.querySelector(".explain_window");
        
@@ -181,8 +212,6 @@ class ChartUtils{
             datasets: datasets,
         };
 
-        console.log(data);
-
         const config = {
             type: 'bar',
             data: data,
@@ -246,8 +275,6 @@ class ChartUtils{
             labels: barxdata,
             datasets: datasets,
         };
-
-        console.log(data);
 
         const config = {
             type: 'bar',

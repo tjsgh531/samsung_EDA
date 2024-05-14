@@ -16,22 +16,23 @@
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- pyLDAvis LDA분석결과 -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bmabey/pyLDAvis@3.4.0/pyLDAvis/js/ldavis.v1.0.0.css">
+
     <link rel="stylesheet" href="./src/style.css">
     <script src="./src/main.js" type="module" defer></script>
 </head>
 <body>
     <div class="container">
         <div class="container_nav">
-            <div class="nav_item" data-contentnum="0">회사 소개</div>
-            <div class="nav_item active_nav_item" data-contentnum="1">매출액 분석</div>
-            <div class="nav_item" data-contentnum="2">투자 분석</div>
-            <div class="nav_item" data-contentnum="3">신년사 분석</div>
-            <div class="nav_item" data-contentnum="4">관련 뉴스</div>
+            <div class="nav_item active_nav_item" data-contentnum="0">회사 소개</div>
+            <div class="nav_item " data-contentnum="1">매출액 분석</div>
+            <div class="nav_item " data-contentnum="2">시장 점유율 분석</div>
+            <div class="nav_item " data-contentnum="3">최근 뉴스 키워드 분석</div>
         </div>
 
         <!-- 회사 소개 -->
-        <div class="content company_info unactive">
-            <!-- 페이지 별 내용을 가지고 있는 곳 -->
+        <div class="content company_info">
             <!-- 1 페이지 -->
             <div class="company_info_page active_page">
                 <div class="content_border_top"></div>
@@ -41,7 +42,7 @@
 
                 <div>
                     <span style="font-size:6rem; font-weight:900;">SAMSUNG</span>
-                    <span style="font-size:3rem; font-weight:600; display:block">ERECTRONICS</span>
+                    <span style="font-size:3rem; font-weight:600; display:block">ELECTRONICS</span>
                 </div>
 
                 <div class="company_info_1_text">
@@ -70,18 +71,40 @@
                 <canvas id="company_info_chart2"></canvas>
 
                 <div class="company_info_2_text" style="text-align:center">
-                    삼성전자 사업은 크게 4가지로 나눌 수 있다.
-                    </br>    
-                    <strong>
-                        </br> 1. DX 부문 :  스마트폰, TV, 냉장고, 세탁기, 등의 가전제품
-                        </br> 2. DS 부문 : DRAM, NAND Flash, 모바일AP 등 반도체 제품
-                        </br> 3. SDC 부문 : 스마트폰 용 OLED 등 디스플레이 제품
-                        </br> 4. Harman 부문 : 디지털 콕핏, 카오디오, 포터블 스피커 등
-                        </br> 5. 기타 부문 : 부문간 내부거래 제거 등
-                    </strong>    
-                    </br>
-                    </br>왼쪽 그래프는 각 부문별 매출액 비중을 나타낸 그래프이다.
-                    </br>그래프를 통해서 삼성전자는 <strong>DX부문(65.7%)과 DS 부문(25.7%)이 주력 사업임</strong>을 알 수 있다.
+                    <div class="right_content_item" style="padding:1rem; padding-top:0;">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            DX 부문
+                        </div>
+                        <span>스마트폰, TV, 냉장고, 세탁기, 등의 가전제품</span>  
+                    </div>
+                    <div class="right_content_item" style="width:90%; padding:1rem">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            DS 부문
+                        </div>
+                        <span>DRAM, NAND Flash, 모바일AP 등 반도체 제품</span>  
+                    </div>
+                    <div class="right_content_item" style="width:90%; padding:1rem">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            SDC 부문
+                        </div>
+                        <span>스마트폰 용 OLED 등 디스플레이 제품</span>  
+                    </div>
+                    <div class="right_content_item" style="width:90%; padding:1rem">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            Harman 부문
+                        </div>
+                        <span>디지털 콕핏, 카오디오, 포터블 스피커 등</span>  
+                    </div>
+                    <div class="right_content_item" style="width:90%; padding:1rem">
+                        <div style="font-size:1.5rem; font-weight:900; ;">
+                            기타 부문
+                        </div>
+                        <span>부문간 내부거래 제거 등</span>  
+                    </div>
+                    <div class="right_content_item" style="width:90%; flex-direction:column; border:none; padding:0">
+                        왼쪽 그래프는 각 부문별 매출액 비중을 나타낸 그래프이다.
+                        </br>그래프를 통해서 삼성전자는 DX부문(65.7%)과 DS 부문(25.7%)이 주력 사업임을 알 수 있다.
+                    </div>
                 </div>
                 
             </div>
@@ -120,7 +143,7 @@
         </div>
 
         <!-- 매출액 분석 -->
-        <div class="content revenue">
+        <div class="content revenue unactive">
 
             <!-- 1 페이지 -->
             <div class="revenue_page active_page">
@@ -225,19 +248,34 @@
 
             <!-- 3 페이지 -->
             <div class="revenue_page unactive">
-                <div class="content_border_top_half_left" style="width:58%"></div>
-                <div class="content_border_top_half_right" style="width:38%"></div>
+                <div class="content_border_top_half_left"></div>
+                <div class="content_border_top_half_right"></div>
                 <div class="content_border_left"></div>
                 <div class="content_border_right"></div>
-                <div class="content_border_bottom_half_left" style="width:58%"></div>
-                <div class="content_border_bottom_half_right" style="width:38%"></div>
-                <div class="content_border_center" style="left:60%"></div>
+                <div class="content_border_bottom_half_left"></div>
+                <div class="content_border_bottom_half_right"></div>
+                <div class="content_border_center"></div>
 
-                <div class="left_content" style="width:61%; background-color: white;">
+                <div class="left_content" style="background-color: white;">
                     <div class="revenue_title">
                         메모리 매출액 감소 원인
                     </div>
                     <canvas id="revenue_chart_3"></canvas>
+                </div>
+                <div class="right_content">
+                    <div class="right_content_item" style="padding:0;">
+                        <a href="https://news.einfomax.co.kr/news/articleView.html?idxno=4289899" style="cursor:pointer; width:100%;height:50%; display:flex; justify-content:center; align-items:center; flex-direction:column;">
+                            <img src="./src/img/dram_price_change_graph.jpg" alt="ram" style="width:100%; height:100%">
+                            <div>관련 기사 : D램 현물 가격</div>
+                        </a>
+                    </div>
+                
+                    <div class="right_content_item" style="padding:0; border:none;">
+                        <a href="https://youtu.be/cSjDUntetpQ?si=5uViEs7tIsFsmLFY" style="cursor:pointer; width:100%;height:50%; display:flex; justify-content:center; align-items:center; flex-direction:column;">
+                            <img src="./src/img/revenue_news.png" alt="dram_news" style="width:60%; height:100%">
+                            <div>관련 뉴스 : 삼성전자가 감산하는 이유</div>
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -254,18 +292,183 @@
             </div>
         </div>
 
-        <div class="content invest unactive">
+        <!-- 시장 점유율 -->
+        <div class="content share unactive ">
+            <!-- 1 페이지 -->
+            <div class="share_page active_page">
+                <div class="content_border_top_half_left" style="width:58%"></div>
+                <div class="content_border_top_half_right" style="width:38%"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom_half_left" style="width:58%"></div>
+                <div class="content_border_bottom_half_right" style="width:38%"></div>
+                <div class="content_border_center" style="left:60%"></div>
 
+                <div class="left_content" style="width:61%; background-color: white;">
+                    <div class="share_title">
+                        시장 점유율
+                    </div>
+                    <canvas id="share_chart_1"></canvas>
+                </div>
+                
+
+                <div class="right_content" style="width:41%; display:flex; align-items:center; justify-content:center;">
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">TV</span>
+                        <span style="font-size:2rem; font-weight:900; color:red">0.4%p 증가</span>  
+                    </div>
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">스마트폰</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">2%p 감소</span>  
+                    </div>
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">DRAM</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">0.9%p 감소</span>  
+                    </div>
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">스마트폰 패널</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">6%p 감소</span>  
+                    </div>
+                    <div class="right_content_item" style="border:none">
+                        <span style="font-size:1.5rem; font-weight:900;">디지털 피콕</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">0.6%p 감소</span>  
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 페이지 -->
+            <div class="share_page unactive">
+                <div class="content_border_top_half_left" style="width:48%"></div>
+                <div class="content_border_top_half_right" style="width:48%"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom_half_left" style="width:48%"></div>
+                <div class="content_border_bottom_half_right" style="width:48%"></div>
+                <div class="content_border_center" style="left:50%"></div>
+
+                <div class="left_content" style="background-color: white;">
+                    <div class="share_title">
+                        TV 시장 점유율
+                    </div>
+                    <canvas id="share_chart_2"></canvas>
+                </div>
+
+                <div class="right_content" style="background-color: white; display:block;">
+                    <div class="share_title">
+                        프리미엄TV 시장 점유율
+                        <span style="font-size:0.6rem; font-weight:400; color:gray; display:block">60인치 이상의 TV를 프리미엄 TV라 칭함.</span>
+                    </div>
+                    <div style="width:100%; height:70%; display:flex; justify-content:center;" >
+                        <canvas id="share_chart_2_2"></canvas>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- 3 페이지 -->
+            <div class="share_page unactive">
+                <div class="content_border_top_half_left" style="width:48%"></div>
+                <div class="content_border_top_half_right" style="width:48%"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom_half_left" style="width:48%"></div>
+                <div class="content_border_bottom_half_right" style="width:48%"></div>
+                <div class="content_border_center" style="left:50%"></div>
+
+                
+                <div class="left_content" style="background-color: white;">
+                    <div class="share_title">
+                        스마트폰 점유율
+                    </div>
+                    <canvas id="share_chart_3"></canvas>
+                </div>
+
+                <div class="right_content" style="background-color: white; display:block;">
+                    <div class="share_title">
+                        프리미엄 스마트폰 점유율
+                        <span style="font-size:0.6rem; font-weight:400; color:gray; display:block">평균 판매가격(ASP)가 600달러(약79만원)이상 제품</span>
+                    </div>
+                    <div style="width:100%; height:70%; display:flex; justify-content:center;" >
+                        <canvas id="share_chart_3_2"></canvas>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- 4 페이지 -->
+            <div class="share_page unactive">
+                <div class="content_border_top_half_left" style="width:58%"></div>
+                <div class="content_border_top_half_right" style="width:38%"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom_half_left" style="width:58%"></div>
+                <div class="content_border_bottom_half_right" style="width:38%"></div>
+                <div class="content_border_center" style="left:60%"></div>
+
+                <div class="left_content" style="width:61%; background-color: white;">
+                    <div class="share_title">
+                        DRAM 점유율
+                    </div>
+                    <canvas id="share_chart_4"></canvas>
+                </div>
+                
+
+                <div class="right_content" style="width:41%; display:flex; align-items:center; justify-content:center;">
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">삼성전자</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">0.7%p 감소</span>  
+                    </div>
+
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">SK하이닉스</span>
+                        <span style="font-size:2rem; font-weight:900; color:blue">2.7%p 감소</span>  
+                    </div>
+
+                    <div class="right_content_item">
+                        <span style="font-size:1.5rem; font-weight:900;">마이크론</span>
+                        <span style="font-size:2rem; font-weight:900; color:red">2.7%p 증가</span>  
+                    </div>
+
+                    <div class="right_content_item" style="border:none">
+                        <span style="font-size:1.5rem; font-weight:900;">기타</span>
+                        <span style="font-size:2rem; font-weight:900; color:red">0.8%p 증가</span>  
+                    </div>
+                    
+                
+                </div>
+            </div>
+
+            <!-- 페이지 전환 버튼 -->
+            <div class="content_footer">
+                <div class="left_btn left_btn_share">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+
+                <div class="right_btn right_btn_share">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
         </div>
         
-        <div class="content new_year_message unactive">
-
-        </div>
-
+        <!-- 최신 뉴스 주요 뉴스 분석 -->
         <div class="content news unactive">
 
-        </div>
+            <!-- 1 페이지 -->
+            <div class="news_page active_page">
+                <div class="content_border_top"></div>
+                <div class="content_border_left"></div>
+                <div class="content_border_right"></div>
+                <div class="content_border_bottom" style="bottom:-4rem"></div>
 
+                <div class="left_content"  style="width:102%; background-color: white; height: 130vh; top: -1rem; transform: none; ">
+                    <div class="news_title">
+                        뉴스 키워드 분석(24.02.01~24.05.13)
+                        <span style="font-size:0.6rem; font-weight:400; color:gray; display:block">MBC와 KBS뉴스 제목 데이터로 LDA분석</span>
+                    </div>
+                    <div class="keyword_result" id="ldavis_el2981347876812395522374644835"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

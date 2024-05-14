@@ -34,7 +34,7 @@ html, body{
     position: absolute;
     z-index: -1; bottom:-10px;
 
-    width: calc(20% + 20px);
+    width: calc(25% + 20px);
     height:110%;
 
     clip-path: polygon(20% 0%, 80% 0%, 100% 90%, 100% 100%, 0% 100%, 0% 90%);
@@ -58,32 +58,22 @@ html, body{
     z-index: 9;
 }
 .nav_item:nth-child(2){
-    left: 20%;
+    left: 25%;
     background-color: #D6E7F7;
     border:1px solid #D6E7F7;
     z-index: 8;
 }
 .nav_item:nth-child(3){
     left: 50%;
-    transform: translateX(-50%);
     background-color: #F9DAE2;
     border:1px solid #F9DAE2;
     z-index: 7;
 }
-.nav_item:nth-child(3):hover{
-    transform: translateY(-8px) translateX(-50%);
-}
 .nav_item:nth-child(4){
-    right: 20%;
+    right: 0;
     background-color: #D3E9DA;
     border:1px solid #D3E9DA;
     z-index: 6;
-}
-.nav_item:nth-child(5){
-    right: 0;
-    background-color: #FFF1CE;
-    border:1px solid #FFF1CE;
-    z-index: 5;
 }
 .active_nav_item{
     color:black;
@@ -298,7 +288,7 @@ html, body{
 
     border-bottom: 4px solid black;
 }
-.revenue_title{
+.revenue_title, .share_title, .news_title{
     margin:1.5rem 1rem;
 
     font-size: 2rem;
@@ -313,13 +303,8 @@ html, body{
 }
 
 
-
-
-
-
-
-/* ----------------------------------- invest ----------------------------------- */
-.invest{
+/* ----------------------------------- share ----------------------------------- */
+.share{
     background-color: #F9DAE2;
 }
 
@@ -328,10 +313,9 @@ html, body{
 
 
 
-/* ----------------------------------- new_year_message ----------------------------------- */
-.new_year_message{
-    background-color: #D3E9DA;
-}
+
+
+
 
 
 
@@ -340,9 +324,23 @@ html, body{
 
 /* ----------------------------------- news ----------------------------------- */
 .news{
-    background-color: #FFF1CE;
+    background-color: #D3E9DA;
+    height:150vh;
 }
 
+.keyword_result{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width:97%;
+    
+
+    /* overflow-x: hidden; */
+    /* overflow-y: scroll; */
+
+    border: 1px solid black;
+}
 
 
 
