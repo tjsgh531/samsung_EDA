@@ -6,8 +6,6 @@ class CompanyInfo{
      
         this.pageManager();
 
-        this.page2_chart;
-        this.page3_chart;
     }
     pageManager(){   
         const max_page = 3;
@@ -85,9 +83,7 @@ class CompanyInfo{
 
             // 차트 설정
             this.page2_chart = this.chart_utils.barchart(ctx, "부문 별 매출 비중(단위: %)", labels, ydata);
-            ctx.style.transform = "scale(0.6)";
-            ctx.style.left = "-15%";
-
+            ctx.style.transform = "scale(0.9)";
         });
     }
 

@@ -207,46 +207,15 @@ html, body{
     bottom:2rem;
 }
 
-/* company_info_page2 */
-
-.company_info_title{
-    font-size:2rem; 
-    font-weight:900;
-    margin-bottom: 0.5rem;
-}
-#company_info_chart2{
-    position: absolute;
-    top:1.5rem;
-}
-.company_info_2_text{
-    position: absolute;
-    top: 0; right: 0;
-    width: 45%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* company_info_page3 */
 .explain_window{
-    position: absolute;
-    top: 0; right: 0;
-    width: 33%;
-    height: 100%;
+    padding:2rem;
+    box-sizing:border-box;
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     text-align: center;
-}
-#company_info_chart3{
-    position: absolute;
-    top:0; left:-5rem;
 }
 
 
@@ -288,7 +257,7 @@ html, body{
 
     border-bottom: 4px solid black;
 }
-.revenue_title, .share_title, .news_title{
+.company_info_title, .revenue_title, .share_title, .news_title{
     margin:1.5rem 1rem;
 
     font-size: 2rem;
